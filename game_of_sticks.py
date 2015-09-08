@@ -44,7 +44,7 @@ def main():
     # print("Select the number of sticks between How many sticks? ")
     play1 = 'Player 1'
     play2 = 'Player 2'
-    play_list = ('Player 1', 'Player 2')
+    play_list = ('Player 1', 'Player 2')  
 # Core game_play:
     while start_stick > 0:
         for p in range(len(play_list)):
@@ -56,7 +56,7 @@ def main():
                 take = int(input("  Try another Selection:  "))
             # possible insertion of confirm_input
             start_stick = start_stick - take
-    
+
     print("{} loses! - Play again". format(play_list[p]))
 
 
