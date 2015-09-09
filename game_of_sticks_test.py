@@ -2,10 +2,7 @@
 import unittest
 from game_of_sticks import *
 
-# word_list = ["bird", "calf", "river", "stream", "kneecap",  "cookbook",
-#              "language", "sneaker", "algorithm", "integration", "brain"]
-#
-#
+
 class TestGameofSticks(unittest.TestCase):
 
     def test_confirm_input(self):
@@ -25,6 +22,13 @@ class TestGameofSticks(unittest.TestCase):
         self.assertFalse(starting_stick_parameters(start_stick, low, high))
         start_stick = 500
         self.assertFalse(starting_stick_parameters(start_stick, low, high))
+
+    def test_better_starting_stick_parameters(self):
+        low = 10
+        high = 100
+        start_stick = 0
+        self.assertTrue(better_starting_stick_parameters(start_stick, low, high))
+
 
 #
 #
