@@ -3,7 +3,7 @@ import unittest
 from game_of_sticks import *
 
 
-class TestGameofSticks(unittest.TestCase):
+class Test_Game_of_Sticks(unittest.TestCase):
 
     def test_confirm_input(self):
         min = 1
