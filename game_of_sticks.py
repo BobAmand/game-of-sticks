@@ -1,6 +1,6 @@
 # This is the Game of Sticks program for Execisize 06 - The Iron Yard
 import re
-import random
+from random import randint
 
 
 def art_intel_lookup(sticks):
@@ -44,8 +44,9 @@ def art_intel_lookup(sticks):
 def confirm_input(take, min, max):  # confirms stick removal is within range
     if min <= take <= max:
         return True
-    print("Can only take between {} and {}. ".format(min, max))
-    return False
+    else:
+        print("Can only take between {} and {}. ".format(min, max))
+        return False
 
 
 def starting_stick_parameters(start_stick, low, high):  # range of stick pile
@@ -65,26 +66,35 @@ def better_starting_stick_parameters(start_stick, low, high):
     return start_stick
 
 
+'''
+todo - if start_stick <= take
+    then can only select less than take
+    else, if only 1 left, the other loses.
+'''
+
+
 def main():
     print("\n-- Welcome to the Game of Sticks --\n")
 # Current parameters are:
-    min = 1
-    max = 3
-    start_stick = 4     # initial start_stick for function.
-    low = 10
-    high = 100
-    start_stick = better_starting_stick_parameters(start_stick, low, high)
+    min = 1  # smallest stick selection per turn
+    max = 3  # maximum stick selection per turn
+    start_stick = 1     # initial start_stick for function.
+    low = 10            # lowest number of Sticks
+    high = 100          # highest number of Sticks
 
+# Openning the play.
+    start_stick = better_starting_stick_parameters(start_stick, low, high)
     play1 = 'Player 1'
     play2 = 'Player 2'
-    play_list = ('Player 1', play2)
-    ATM = 0  # This is the ON switch for the AI player as player 2.
+    play_list = (play1, play2)
+    # ATM = 0  # This is the ON switch for the AI player as player 2.
+
 # Core game_play:
     while start_stick > 0:
         for p in range(len(play_list)):
             print("  There are {} sticks on the board.\n".format(start_stick))
             print("  Take away between {} to {} sticks\n".format(min, max))
-            print("{}:".format(play_list[p]))
+            print("{}:".format(play_list[p]))  # index switch between players
 #            if ATM = 1:
 #                ### function
 #            else:
@@ -92,6 +102,8 @@ def main():
             take = int(input("  Selection:  "))
             while confirm_input(take, min, max) == False:
                 take = int(input("  Try another Selection:  "))
+            while take > start_stick:
+                take = int(input(" Too many sticks selected, try again: "))
             start_stick = start_stick - take
             if start_stick == 0:
                 break
