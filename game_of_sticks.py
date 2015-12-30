@@ -1,6 +1,14 @@
 # This is the Game of Sticks program for Execisize 06 - The Iron Yard
 import re
 from random import randint
+"""
+TODO
+- switch players  -done
+- play again
+- all of the AI functionality
+    - play against computer
+    - computer against computer
+"""
 
 
 def art_intel_lookup(sticks):
@@ -21,7 +29,7 @@ def art_intel_lookup(sticks):
                        }
 
     tracking_ai_dict = {
-                        1: ['e'], 2: ['e'], 3: ['e'], 4: ['e'],
+                        1: [0], 2: ['e'], 3: ['e'], 4: ['e'],
                         5: ['e'], 6: ['e'], 7: ['e'], 8: ['e'],
                         9: ['e'], 10: ['e']
                         }
@@ -66,13 +74,6 @@ def better_starting_stick_parameters(start_stick, low, high):
     return start_stick
 
 
-'''
-todo - if start_stick <= take
-    then can only select less than take
-    else, if only 1 left, the other loses.
-'''
-
-
 def main():
     print("\n-- Welcome to the Game of Sticks --\n")
 # Current parameters are:
@@ -108,7 +109,12 @@ def main():
             if start_stick == 0:
                 break
     print("{} loses! - Play again". format(play_list[p]))
-
+    print("\n")
+    again = input("Do you wish to play again? (Y/n): ")
+    if again != "n":
+        main()
+    else:
+        print('Thanks for playing... \n  Bye!')
 
 if __name__ == '__main__':
     main()
