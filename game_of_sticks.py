@@ -22,17 +22,27 @@ def art_intel_lookup(sticks):
     associated with the number of sticks at the time (key)
 
     '''
-    initial_ai_dict = {
-                       1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3], 4: [1, 2, 3],
-                       5: [1, 2, 3], 6: [1, 2, 3], 7: [1, 2, 3], 8: [1, 2, 3],
-                       9: [1, 2, 3], 10: [1, 2, 3]
-                       }
+    # need a function to build the AI_dict, AI_temp_dict, and the AI_win_dict.
+    # it needs to be adaptable for the number of sticks to start!
+    # currently set up for 10 sticks only:
 
-    tracking_ai_dict = {
-                        1: [0], 2: ['e'], 3: ['e'], 4: ['e'],
-                        5: ['e'], 6: ['e'], 7: ['e'], 8: ['e'],
-                        9: ['e'], 10: ['e']
-                        }
+    AI_dict = {
+               1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3], 4: [1, 2, 3],
+               5: [1, 2, 3], 6: [1, 2, 3], 7: [1, 2, 3], 8: [1, 2, 3],
+               9: [1, 2, 3], 10: [1, 2, 3]
+               }
+
+    AI_temp_dict = {
+                    1: ['e'], 2: ['e'], 3: ['e'], 4: ['e'],
+                    5: ['e'], 6: ['e'], 7: ['e'], 8: ['e'],
+                    9: ['e'], 10: ['e']
+                    }
+
+    AI_win_dict = {
+                   1: [1, 2, 3], 2: [1, 2, 3], 3: [1, 2, 3], 4: [1, 2, 3],
+                   5: [1, 2, 3], 6: [1, 2, 3], 7: [1, 2, 3], 8: [1, 2, 3],
+                   9: [1, 2, 3], 10: [1, 2, 3]
+                   }
 
     '''
     #TODO:
@@ -74,8 +84,16 @@ def better_starting_stick_parameters(start_stick, low, high):
     return start_stick
 
 
+def ai_play(start_stick):
+    pass
+
+
+def ai_record(start_stick):
+    pass
+
+
 def main():
-    print("\n-- Welcome to the Game of Sticks --\n")
+    print("\n-- Welcome to the Game of Sticks! --\n")
 # Current parameters are:
     min = 1  # smallest stick selection per turn
     max = 3  # maximum stick selection per turn
