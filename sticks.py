@@ -41,9 +41,8 @@ def main():
                     print("Player 1, you lose.")
                     learn_from_win(hats, beside)
                     break
-
                 ai_sticks = pick_ai_sticks(hats, beside, sticks)
-                print("AI selects {}.".format(ai_sticks))
+                print("With {} remaining, AI selects {}.".format(sticks, ai_sticks))
 
                 sticks -= ai_sticks
 
@@ -53,7 +52,7 @@ def main():
                     break
 
             for i in range(1, 11):
-                print(hats[i])
+                print(i, hats[i])
 
         if check_play_again() == True:
             continue
@@ -95,9 +94,18 @@ def learn_from_loss(hats, beside):
 
 
 def pick_ai_sticks(hats, beside, num_sticks):
-    sticks = random.choice(hats[num_sticks])  # random selection at num_sticks
-
-    beside[num_sticks] = sticks  # adds key (num_sticks) + sticks to beside{}.
+    if num_sticks == 4:
+        sticks = 3
+        beside[num_sticks] = sticks
+    elif num_sticks == 3:
+        sticks = 2
+        beside[num_sticks] = sticks
+    elif num_sticks == 2:
+        sticks = 1
+        beside[num_sticks] = sticks
+    else:
+        sticks = random.choice(hats[num_sticks])  # random select at num_sticks
+        beside[num_sticks] = sticks  # adds key (num_sticks) + sticks to beside{}.
     return sticks
 
 
