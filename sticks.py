@@ -1,7 +1,4 @@
 import random
-'''
-We need a dictionary of Lists
-'''
 
 
 def main():
@@ -93,7 +90,7 @@ def learn_from_loss(hats, beside):
             hats[key].remove(beside[key])
 
 
-def pick_ai_sticks(hats, beside, num_sticks):
+def pick_ai_sticks(hats, beside, num_sticks):  # built in AI (no learning)
     if num_sticks == 4:
         sticks = 3
         beside[num_sticks] = sticks
